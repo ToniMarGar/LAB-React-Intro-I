@@ -12,7 +12,7 @@ const studentsNames = [
   {name: "Pancho", grade: 7},
   {name: "Pepe", grade: 8},
   {name: "Pipo", grade: 6},
-  {name: "ElJose", grade: 3},
+  {name: "El Jose", grade: 1},
 ];
 let numbStudents = 0;
 
@@ -28,12 +28,16 @@ const listNames = (students) => {
       }
 }
 
-/* const tableStudents = (object) => {
-  const element1 = object.map((data, index) => {
+const tableStudents = (object) => {
+  
+  const element = object.map((data, index) => {
+    const failed = {
+         background : data.grade >= 5 ? "green" : "red",
+       };
     return (
       <tr key={index}>
         <th>{data.name}</th>
-        <td>{data.grade}</td>
+        <td style={failed}>{data.grade}</td>
       </tr>
     );
   });
@@ -42,18 +46,18 @@ const listNames = (students) => {
       <caption>Students</caption>
       <th>Name</th>
       <th>Grade</th>
-      {element1}
+      {element}
     </table>
   );
-}; */
+}; 
 
 function app () {
   return (
     <>
-    {" "}
     <div>{greetings("Toni")}</div>
     <div>{listNames(studentsNames)}</div>
     <div>There are { numbStudents } students in this class</div>
+    <div>{tableStudents(studentsNames)}</div>
     </>
   )
 }
