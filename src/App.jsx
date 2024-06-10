@@ -51,13 +51,37 @@ const tableStudents = (object) => {
   );
 }; 
 
+const tableStudentsPass = (object) => {
+  
+  const element = object.map((data, index) => {
+    const failed = {
+         background : data.grade >= 5 ? "green" : "red",
+       };
+    return (
+      <tr key={index}>
+        <th>{data.name}</th>
+        <td style={failed}>{data.grade}</td>
+      </tr>
+    );
+  });
+  return (
+    <table>
+      <caption>Aproved students</caption>
+      <th>Name</th>
+      <th>Grade</th>
+      {element}
+    </table>
+  );
+}; 
+
 function app () {
   return (
     <>
-    <div>{greetings("Toni")}</div>
+    <h1>{greetings("Toni")}</h1>
     <div>{listNames(studentsNames)}</div>
-    <div>There are { numbStudents } students in this class</div>
+    <h3>There are { numbStudents } students in this class!</h3>
     <div>{tableStudents(studentsNames)}</div>
+    <div>{tableStudentsPass(studentsNames)}</div>
     </>
   )
 }

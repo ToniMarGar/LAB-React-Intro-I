@@ -6,15 +6,24 @@ body {
   margin: 0;
   font-family: sans-serif;
   color: white;
-  background-color: rgb(64, 61, 102);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(11, 47, 116, 1) 50%, rgba(0, 212, 255, 1) 100%);
   display: flex;
   place-items: center;
   min-height: 100px;
   line-height: 1.5;
 }
 
-table {
-  background-color: black;
+table td{
+  background-color: rgb(24, 24, 24);
   justify-content: center;
   width: 300px;
+  border: 3px inset;
+  border-color: white;
+}
+
+table th {
+  background-color: rgb(54, 57, 58);
+  border: 3px inset black;
+  width: 100px;
 }
