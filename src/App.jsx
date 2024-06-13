@@ -51,25 +51,25 @@ const tableStudents = (object) => {
   );
 }; 
 
-const tableStudentsPass = (object) => {
-  
-  const element = object.map((data, index) => {
-    const failed = {
-         background : data.grade >= 5 ? "green" : "red",
-       };
-    return (
-      <tr key={index}>
-        <th>{data.name}</th>
-        <td style={failed}>{data.grade}</td>
+const tableStudentsPass = (array) => {
+  const passedStudents = array.filter((student) => student.grade >= 5)
+  passedStudents.sort((a,b) => b.grade - a.grade)
+  const passStudentList = passedStudents.map ((student, index) => {
+    if (student.grade >= 5) {
+      return (
+        <tr key={index}>
+        <th>{student.name}</th>
+        <td>{student.grade}</td>
       </tr>
-    );
-  });
+      )
+    } else return;
+  }) 
   return (
     <table>
       <caption>Aproved students</caption>
       <th>Name</th>
       <th>Grade</th>
-      {element}
+      {passStudentList}
     </table>
   );
 }; 
