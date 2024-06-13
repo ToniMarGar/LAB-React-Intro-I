@@ -56,10 +56,13 @@ const tableStudentsPass = (array) => {
   passedStudents.sort((a,b) => b.grade - a.grade)
   const passStudentList = passedStudents.map ((student, index) => {
     if (student.grade >= 5) {
+      const failed = {
+         background : student.grade >= 5 ? "green" : "red",
+       };
       return (
         <tr key={index}>
         <th>{student.name}</th>
-        <td>{student.grade}</td>
+        <td style={failed}>{student.grade}</td>
       </tr>
       )
     } else return;
